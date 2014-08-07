@@ -55,6 +55,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-root 'books#index'
+root :to => 'books#index'
 
 end
