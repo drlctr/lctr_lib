@@ -6,5 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 books = Book.create([
-	{title: 'POODR', author: 'Metz', ISBN: '2222'}
+	{title: 'POODR', author: 'Metz', ISBN: '2222', user_id: 1}
+	])
+
+users = User.create([
+	{username: 'Lecter', email: 'lctr@lctrnet.net', password: 'test'}
 	])
