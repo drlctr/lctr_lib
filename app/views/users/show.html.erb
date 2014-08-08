@@ -1,4 +1,25 @@
-<p id="notice"><%= notice %></p>
+<body>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="row">
+  
+    <div class="large-9 columns" role="content">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Username:</strong>
+        <%= @user.username %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+
+    </div>
+      
+  </div>
+</body>
+
