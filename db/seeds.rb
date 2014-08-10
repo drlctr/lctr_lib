@@ -6,9 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 books = Book.create([
-	{title: 'POODR', author: 'Metz', ISBN: '2222', user_id: 1}
+	{title: 'POODR', author: 'Metz', ISBN: '2222', user_id: 1},
+	{title: 'Fighter Combat', author: 'Shaw', ISBN: '2223', user_id: 2},
+	{title: 'Moneyball', author: 'Lewis', ISBN: '2224', user_id: 3},
+	{title: 'Dressing the Man', author: 'Flusser', ISBN: '2225', user_id: 4},
+	{title: 'New Kind of Science', author: 'Wolfram', ISBN: '2226', user_id: 5}
 	])
 
 users = User.create([
-	{username: 'Lecter', email: 'lctr@lctrnet.net', password: 'test'}
+	{username: 'Pete', email: 'pete@petenet.net', password: 'testing22', password_confirmation: 'testing22'},
+	{username: 'Fred', email: 'fred@fred.net', password: 'testing22', password_confirmation: 'testing22'},
+	{username: 'Jane', email: 'jane@jnet.net', password: 'testing22', password_confirmation: 'testing22'},
+	{username: 'Joe', email: 'Joe@jnet.com', password: 'testing22', password_confirmation: 'testing22'},
+	{username: 'Dick', email: 'richard@rnet.com', password: 'testing22', password_confirmation: 'testing22'}
 	])
