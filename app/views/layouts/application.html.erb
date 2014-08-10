@@ -14,37 +14,44 @@
   <body>
 
     <div class="row">
-    <div class="large-12 columns">
-      <div class="nav-bar right">
-       <ul class="button-group">
-         <li><a href= "/" class="button">Home</a></li>
-         <li><a href= "/books" class="button">Books</a></li>
-         <li><a href="/users" class="button">Users</a></li>
-         <li><a href="#" class="button">Something Else</a></li>
-        </ul>
+      <div class="large-12 columns">
+        <div class="nav-bar right">
+         <ul class="button-group">
+           <li><a href= "/" class="button">Home</a></li>
+           <li><a href= "/books" class="button">Books</a></li>
+           <li><a href="/users" class="button">Users</a></li>
+           <li><a href="#" class="button">Something Else</a></li>
+          </ul>
+        </div>
+        <h1>Library <small>Adv. Rails Summer 2014 Project.</small></h1>
+        <hr/>
       </div>
-      <h1>Library <small>Adv. Rails Summer 2014 Project.</small></h1>
-      <hr/>
     </div>
-  </div>
+
+    <div class="row">
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <%= yield %>
 
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr/>
-      <div class="row">
-        <div class="large-6 columns">
-          <p>MIT License, Neil Woodward</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="http://www.amazon.com" class="button">Buy more books at Amazon.com!</a></li></li>
-          </ul>
+    </div>
+
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+          <div class="large-6 columns">
+            <p>MIT License, Neil Woodward</p>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li><a href="http://www.amazon.com" class="button">Buy more books at Amazon.com!</a></li></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
     
     <script>
       $(document).foundation();
