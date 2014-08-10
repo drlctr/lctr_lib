@@ -16,14 +16,21 @@
     <div class="row">
       <div class="large-12 columns">
         <div class="nav-bar right">
-         <ul class="button-group">
-           <li><a href= "/" class="button">Home</a></li>
-           <li><a href= "/books" class="button">Books</a></li>
-           <li><a href="/users" class="button">Users</a></li>
-           <li><a href="#" class="button">Something Else</a></li>
+          <ul class="button-group">
+            <li><a href= "/" class="button">Home</a></li>
+            <li><a href= "/books" class="button">Books</a></li>
+            <li><a href="/users" class="button">Users</a></li>
+            <% if user_signed_in? %>
+              <li><a href="/users/sign_out" data-method="delete" class="button">Log Out</a></li>
+            <% else %>
+              <li><a href="/users/sign_in" class="button">Log In</a></li>
+            <% end %>          
           </ul>
         </div>
         <h1>Library <small>Adv. Rails Summer 2014 Project.</small></h1>
+        <% if user_signed_in? %>
+          <%= "Signed in as #{current_user.username}." %>
+        <% end %>
         <hr/>
       </div>
     </div>
