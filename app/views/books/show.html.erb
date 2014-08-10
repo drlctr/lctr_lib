@@ -17,6 +17,13 @@
       <%= @book.ISBN %>
     </p>
 
+    <h3>Reviews</h3>
+    <div id="reviews">
+      <%= render @book.reviews %>
+    </div>
+    <%= render file: 'reviews/new' %>
+    
+
     <%= link_to 'Edit', edit_book_path(@book) %> |
     <%= link_to 'Back', books_path %>
 

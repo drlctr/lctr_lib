@@ -1,0 +1,14 @@
+<%= div_for review do %>
+
+	<h3>
+      <%= review.username %> &lt;<%= review.email %>&gt;said:
+      <span class='actions'>
+        <%= link_to('Delete', [@book, review],
+        confirm: 'Delete the review, are you sure?', 
+        method: :delete) %>
+      </span>
+    </h3>
+
+    <%= review.body %>
+
+<% end %>
