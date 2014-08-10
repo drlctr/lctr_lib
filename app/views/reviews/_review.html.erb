@@ -1,14 +1,24 @@
 <%= div_for review do %>
 
-	<h3>
-      <%= review.username %> &lt;<%= review.email %>&gt;said:
-      <span class='actions'>
-        <%= link_to('Delete', [@book, review],
-        confirm: 'Delete the review, are you sure?', 
-        method: :delete) %>
-      </span>
-    </h3>
+	<p>
+      <strong>
+      <%= review.username %> &lt;<%= review.email %>&gt
+      </strong>
+      <% if current_user.username == review.username %>
+        (Hey!  That's you!)
+      <% end %>
 
-    <%= review.body %>
+      said:<br>
+
+      "<%= review.body %>"<br>
+
+      <%if current_user.username == review.username %>
+        <span class='actions'>
+          <%= link_to('Delete review', [@book, review],
+          confirm: 'Delete the review, are you sure?', 
+          method: :delete) %>
+        </span>
+      <% end %>
+    </p>
 
 <% end %>

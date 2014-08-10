@@ -17,12 +17,7 @@
       <%= @book.ISBN %>
     </p>
 
-    <h3>Reviews</h3>
-    <div id="reviews">
-      <%= render @book.reviews %>
-    </div>
-    <%= render file: 'reviews/new' %>
-    
+
 
     <%= link_to 'Edit', edit_book_path(@book) %> |
     <%= link_to 'Back', books_path %>
@@ -31,11 +26,13 @@
 
   <aside class="large-3 columns">
 
-    <h5>Reviews & Comments </h5>
+    <h5>Reviews & Ratings </h5>
     <ul class="side-nav">
-      <li><a href="#">Comment 1</a></li>
-      <li><a href="#">Comment 2</a></li>
-      <li><a href="#">Etc.</a></li>
+      <div id="reviews">
+        <%= render @book.reviews %>
+      </div>
+      <strong>Add a Review</strong>
+      <%= render file: 'reviews/new' %>
     </ul>
 
     <div class="panel">

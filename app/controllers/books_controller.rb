@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :eidt, :update, :destroy, :create]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :verify_owner, only: [:edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
@@ -20,6 +21,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+
   end
 
   # POST /books
@@ -71,5 +73,14 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:title, :author, :ISBN)
+    end
+
+    def verify_owner
+      unless user_signed_in? && 
+        (@book.user.username == current_user.username)
+        flash[:alert]="You must have entered the book into the system
+          in order to modify it"
+          redirect_to "/"
+      end
     end
 end
