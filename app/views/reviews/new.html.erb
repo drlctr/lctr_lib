@@ -2,11 +2,11 @@
 
   <div class='field'>
     <%= f.label :username %><br />
-    <%= f.text_field(:username, value: current_user.username) %>
+    <%= f.text_field(:username, value: current_user.username, readonly: true) %>
   </div>
   <div class='field'>
     <%= f.label :email %><br />
-    <%= f.text_field(:email, value: current_user.email) %>
+    <%= f.text_field(:email, value: current_user.email, readonly: true) %>
   </div>
   <div class='field'>
     <%= f.label :body %><br />
