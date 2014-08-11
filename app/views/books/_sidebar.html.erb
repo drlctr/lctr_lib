@@ -1,0 +1,16 @@
+<aside class="large-3 columns">
+
+  <div class="panel">
+  <%= render 'sidebar2' %>
+  </div>
+
+  <h5>Reviews & Ratings for <%= @book.title %>: </h5>
+  <ul class="side-nav">
+    <div id="reviews">
+      <%= render @book.reviews %>
+    </div>
+    <strong>Add a Review</strong>
+    <%= render file: 'reviews/new' %>
+  </ul>
+
+</aside>

@@ -24,23 +24,6 @@
 
   </div>
 
-  <aside class="large-3 columns">
-
-    <h5>Reviews & Ratings </h5>
-    <ul class="side-nav">
-      <div id="reviews">
-        <%= render @book.reviews %>
-      </div>
-      <strong>Add a Review</strong>
-      <%= render file: 'reviews/new' %>
-    </ul>
-
-    <div class="panel">
-      <h5>Featured</h5>
-      <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-      <a href="#">Read More →</a>
-    </div>
-
-  </aside>
+  <%= render 'sidebar' %>
  
 </body>

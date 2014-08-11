@@ -2,7 +2,7 @@
   
   <div class="large-9 columns" role="content">
   
-    <h1>Editing book</h1>
+    <h1>Editing "<%= @book.title %>"</h1>
 
     <%= render 'form' %>
 
@@ -11,21 +11,6 @@
 
   </div>
 
-  <aside class="large-3 columns">
+  <%= render 'sidebar' %>
 
-    <h5>Reviews & Comments </h5>
-    <ul class="side-nav">
-      <li><a href="#">Comment 1</a></li>
-      <li><a href="#">Comment 2</a></li>
-      <li><a href="#">Etc.</a></li>
-    </ul>
-
-    <div class="panel">
-      <h5>Featured</h5>
-      <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-      <a href="#">Read More →</a>
-    </div>
-
-  </aside>
- 
 </body>

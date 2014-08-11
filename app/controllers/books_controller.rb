@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+    @book=Book.first
   end
 
   # GET /books/1
