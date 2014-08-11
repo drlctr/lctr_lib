@@ -4,5 +4,7 @@ class Book < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :reviews
+
+	ratyrate_rateable "user_rating"
 	
 end

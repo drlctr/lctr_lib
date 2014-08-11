@@ -4,15 +4,18 @@
       <strong>
       <%= review.username %> &lt;<%= review.email %>&gt
       </strong>
-      <% if current_user.username == review.username %>
+      <% if user_signed_in? && 
+        (current_user.username == review.username) %>
         (Hey!  That's you!)
       <% end %>
 
       said:<br>
+      <%= rating_for_user @book, review.username, "user_rating" %>
 
       "<%= review.body %>"<br>
 
-      <%if current_user.username == review.username %>
+      <%if user_signed_in? && (
+        current_user.username == review.username) %>
         <span class='actions'>
           <%= link_to('Delete review', [@book, review],
           confirm: 'Delete the review, are you sure?', 

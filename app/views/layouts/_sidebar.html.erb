@@ -9,8 +9,11 @@
     <div id="reviews">
       <%= render @book.reviews %>
     </div>
-    <strong>Add a Review</strong>
-    <%= render file: 'reviews/new' %>
+    <% if user_signed_in? %>
+      <strong>Add a Review</strong>
+      <%= rating_for @book, "user_rating" %>
+      <%= render file: 'reviews/new' %>
+    <% end %>
   </ul>
 
 </aside>
