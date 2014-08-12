@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 	before_action :load_book
 
 	def create
+		puts "Review_params = #{review_params}"
 		@review = @book.reviews.new(review_params)
 		if @review.save
 			redirect_to @book, notice: 'Thanks for your review!'
@@ -23,7 +24,7 @@ class ReviewsController < ApplicationController
 	end
 
   def review_params
-  	params.require(:review).permit(:username, :email, :body)
+  	params.require(:review).permit(:username, :email, :body, :user_id)
   end
 
 end

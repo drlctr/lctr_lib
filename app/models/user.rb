@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 	   characters, at least one number or non-alphanumeric"}
 
 	has_many :books
+	has_many :reviews
 
 	ratyrate_rater
 	

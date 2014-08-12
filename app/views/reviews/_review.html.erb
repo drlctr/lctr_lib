@@ -10,8 +10,8 @@
       <% end %>
 
       said:<br>
-      <%= rating_for_user @book, review.username, "user_rating" %>
-
+      <%= "Review.user is #{review.user.username}" %><br>
+      <%= rating_for_user @book, review.user, "user_rating" %>
       "<%= review.body %>"<br>
 
       <%if user_signed_in? && (
