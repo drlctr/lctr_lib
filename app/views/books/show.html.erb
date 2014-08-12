@@ -17,9 +17,6 @@
       <%= @book.ISBN %>
     </p>
 
-    <strong>Rate this book!</strong>
-    <%= rating_for @book, "user_rating" %>
-
 
     <%= link_to 'Edit', edit_book_path(@book) %> |
     <%= link_to 'Back', books_path %>
