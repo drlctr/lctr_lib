@@ -1,23 +1,23 @@
 <%= form_for([@book, @book.reviews.new]) do |f| %>
 
   <div class='field'>
-    <%= f.label :username %><br />
-    <%= f.text_field(:username, value: current_user.username, readonly: true) %>
-  </div>
-  <div class='field'>
-    <%= f.label :email %><br />
-    <%= f.text_field(:email, value: current_user.email, 
+    <%= f.label "Username" %><br />
+    <%= f.text_field(current_user.username, value: current_user.username, 
       readonly: true) %>
   </div>
   <div class='field'>
-    <%= f.label :body %><br />
+    <%= f.label "Email" %><br />
+    <%= f.text_field(current_user.email, value: current_user.email, 
+      readonly: true) %>
+  </div>
+  <div class='field'>
+    <%= f.label "Your Review" %><br />
     <%= f.text_area :body %>
   </div>
   <div>
   <div class='field'>
-  <%= f.hidden_field(:user_id, value: current_user.id) %>
+    <%= f.hidden_field(:user_id, value: current_user.id) %>
   </div>
-
   <div class='actions'>
     <%= f.submit 'Add' %>
   </div>

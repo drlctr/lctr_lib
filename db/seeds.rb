@@ -22,12 +22,12 @@ users = User.create([
 	])
 
 reviews = Review.create([
-	{book_id: 1, username: 'Pete', email: 'pete@petnet.net', body: 'Good', user_id: 1},
-	{book_id: 1, username: 'Fred', email: 'fred@fred.net', body: 'bad', user_id: 2},
-	{book_id: 1, username: 'Jane', email: 'jane@jnet.net', body: 'meh', user_id: 3},
-	{book_id: 1, username: 'Joe', email: 'joe@jnet.com', body: 'super', user_id: 4},
-	{book_id: 1, username: 'Dick', email: 'richard@rnet.com', body: 'SH', user_id: 5},
-	{book_id: 2, username: 'Pete', email: 'pete@petnet.net', body: 'barf', user_id: 1},
-	{book_id: 2, username: 'Fred', email: 'fred@fred.net', body: 'glurp', user_id: 2},
-	{book_id: 2, username: 'Jane', email: 'jane@jnet.net', body: 'bliyhee', user_id: 3}
+	{book_id: 1, body: 'Good', user_id: 1},
+	{book_id: 1, body: 'bad', user_id: 2},
+	{book_id: 1, body: 'meh', user_id: 3},
+	{book_id: 1, body: 'super', user_id: 4},
+	{book_id: 1, body: 'SH', user_id: 5},
+	{book_id: 2, body: 'barf', user_id: 1},
+	{book_id: 2, body: 'glurp', user_id: 2},
+	{book_id: 2, body: 'bliyhee', user_id: 3}
 	])

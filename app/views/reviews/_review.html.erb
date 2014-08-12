@@ -2,20 +2,19 @@
 
 	<p>
       <strong>
-      <%= review.username %> &lt;<%= review.email %>&gt
+      <%= review.user.username %> &lt;<%= review.user.email %>&gt
       </strong>
       <% if user_signed_in? && 
-        (current_user.username == review.username) %>
+        (current_user.username == review.user.username) %>
         (Hey!  That's you!)
       <% end %>
 
       said:<br>
-      <%= "Review.user is #{review.user.username}" %><br>
       <%= rating_for_user @book, review.user, "user_rating" %>
       "<%= review.body %>"<br>
 
       <%if user_signed_in? && (
-        current_user.username == review.username) %>
+        current_user.username == review.user.username) %>
         <span class='actions'>
           <%= link_to('Delete review', [@book, review],
           confirm: 'Delete the review, are you sure?', 
