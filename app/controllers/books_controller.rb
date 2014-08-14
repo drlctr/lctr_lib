@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
-  before_action :verify_owner, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /books
   # GET /books.json
@@ -17,7 +16,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    # @book = Book.new
   end
 
   # GET /books/1/edit
@@ -28,7 +27,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = Book.new(book_params)
+    # @book = Book.new(book_params)
 
     respond_to do |format|
       if @book.save
@@ -67,21 +66,13 @@ class BooksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
-    end
+    # def set_book
+    #   @book = Book.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:title, :author, :ISBN)
     end
 
-    def verify_owner
-      unless user_signed_in? && 
-        (@book.user.username == current_user.username)
-        flash[:alert]="You must have entered the book into the system
-          in order to modify it"
-          redirect_to "/"
-      end
-    end
 end
