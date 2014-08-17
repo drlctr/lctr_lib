@@ -31,6 +31,9 @@
         <% if user_signed_in? %>
           <%= "Signed in as #{current_user.username}." %>
         <% end %>
+        <% if current_user.is_admin? %>
+          <br><%= "You have admin rights." %>
+        <% end %>
         <hr/>
       </div>
     </div>
