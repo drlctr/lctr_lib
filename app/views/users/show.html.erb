@@ -12,6 +12,26 @@
       <%= @user.email %>
     </p>
 
+    <p>
+      <strong>Receiving Review Notifications?</strong>
+      <%= @user.user_profile.mail_pref_rev %>
+    </p>
+
+    <p>
+      <strong>Receiving Rating Notifications?</strong>
+      <%= @user.user_profile.mail_pref_rat %>
+    </p>
+
+    <p>
+    <% if current_user.is_admin? %>
+      <% if @user.is_admin? %>
+        <strong>User has admin priviledges</strong>
+      <% else %>
+        <strong>User has user priviledges</strong>
+      <% end %>
+    <% end %>      
+    </p>
+
     <%= link_to 'Edit', edit_user_path(@user) %> |
     <%= link_to 'Back', users_path %>
 

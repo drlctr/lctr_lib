@@ -18,7 +18,7 @@ users = User.create([
 	{username: 'Fred', email: 'fred@fred.net', password: 'testing22', password_confirmation: 'testing22'},
 	{username: 'Jane', email: 'jane@jnet.net', password: 'testing22', password_confirmation: 'testing22'},
 	{username: 'Joe', email: 'Joe@jnet.com', password: 'testing22', password_confirmation: 'testing22'},
-	{username: 'Dick', email: 'richard@rnet.com', password: 'testing22', password_confirmation: 'testing22'}
+	{username: 'Dick', email: 'richard@rnet.com', password: 'testing22', password_confirmation: 'testing22'},
 	])
 
 reviews = Review.create([
@@ -30,4 +30,12 @@ reviews = Review.create([
 	{book_id: 2, body: 'barf', user_id: 1},
 	{book_id: 2, body: 'glurp', user_id: 2},
 	{book_id: 2, body: 'bliyhee', user_id: 3}
+	])
+
+roles = Role.create([
+	{name: "Admin"}
+	])
+
+users_roles = UsersRole.create([
+  {user_id: 1, role_id: 1}
 	])
