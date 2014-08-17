@@ -20,7 +20,7 @@
             <li><a href= "/" class="button">Home</a></li>
             <li><a href= "/books" class="button">Books</a></li>
             <li><a href="/users" class="button">Users</a></li>
-            <% if user_signed_in? %>
+            <% unless current_user.username == "guest" %>
               <li><a href="/users/sign_out" data-method="delete" class="button">Log Out</a></li>
             <% else %>
               <li><a href="/users/sign_in" class="button">Log In</a></li>
