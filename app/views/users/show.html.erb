@@ -26,13 +26,15 @@
     <% if current_user.is_admin? %>
       <% if @user.is_admin? %>
         <strong>User has admin priviledges</strong>
+        <%= link_to "Revoke admin priviledges", "/users/revoke_admin_priv/#{@user.id}" %>
       <% else %>
         <strong>User has user priviledges</strong>
+        <%= link_to "Give admin priviledges", "/users/give_admin_priv/#{@user.id}" %>
       <% end %>
     <% end %>      
     </p>
 
-    <%= link_to 'Edit', edit_user_registration_path(@user) %> |
+    <%= link_to 'Edit', edit_user_registration_path(@user) %> 
     <%= link_to 'Back', users_path %>
 
   </div>

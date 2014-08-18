@@ -67,5 +67,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 root to: 'books#index'
+get ':controller/:action/:id'
 
 end

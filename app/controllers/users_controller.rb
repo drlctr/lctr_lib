@@ -62,6 +62,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def give_admin_priv
+    if current_user.is_admin?
+      u = User.find(params[:id])
+      u.add_role :admin
+      redirect_to '/', notice:  "#{u.username} now has admin priviledges."
+    else
+      redirect_to '/', alert:  "You do not have priviledges to view that page."
+    end
+  end
+
+  def revoke_admin_priv
+    if current_user.is_admin?
+      u = User.find(params[:id])
+      u.remove_role :admin
+      redirect_to '/', notice: "#{u.username} no longer has admin priviledges."
+    else
+      redirect_to '/', alert:  "You do not have priviledges to view that page."
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
