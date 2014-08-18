@@ -67,6 +67,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 root to: 'books#index'
+post '/users/invite_user', to: 'users#invite_user'
 get ':controller/:action/:id'
 
 end

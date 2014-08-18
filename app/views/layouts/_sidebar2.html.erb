@@ -1,5 +1,14 @@
       <div class="panel">
         <h5>Like this app?</h5>
         
-        <a href="#">Invite your friends to join! →</a>
+        <p>Invite your friends to join!</p>
+
+        <div>
+	        <%= form_tag("/users/invite_user") do %>
+		        <%= label_tag :invite_email, "Enter your friend's email address here" %>
+		        <%= email_field_tag :invite_email %>
+		        <%= submit_tag("Submit!") %>
+	        <% end %>
+        </div>
+
       </div>
