@@ -16,7 +16,10 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-  	devise_parameter_sanitizer.for(:sign_up).push(:username, :email)
+  	devise_parameter_sanitizer.for(:sign_up).push(:username, :email, 
+      user_profile_attributes: [:id, :mail_pref_rev, :mail_pref_rat])
+    devise_parameter_sanitizer.for(:account_update).push(:username, :email, 
+       user_profile_attributes: [:id, :mail_pref_rev, :mail_pref_rat])
   end
 
   private

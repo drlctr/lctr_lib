@@ -21,7 +21,7 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <%= f.fields_for :user_profile do |profile_form| %>
+  <%= f.fields_for :user_profile, resource.user_profile do |profile_form| %>
     <div>
     <%= profile_form.label "I want to be notified if my books are reviewed" %>
     <%= profile_form.check_box :mail_pref_rev %>
@@ -32,8 +32,7 @@
     <%= profile_form.check_box :mail_pref_rat %>
     </div>
   <% end %>
-  <%= p "#{u.mail_pref_rat}" %>
-  <%= p " id is #{u.user_id}" %>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
