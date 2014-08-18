@@ -1,0 +1,8 @@
+<p>Dear <%= @book.user.username %>:</p>
+<br>
+<p><%= @rater.username %> just rated your book!</p>
+<p>
+<%= "They gave you #{@stars} stars!" %>
+</p>
+
+<li> Book rated: <%= @book.title %>
