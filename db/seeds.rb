@@ -39,3 +39,11 @@ roles = Role.create([
 users_roles = UsersRole.create([
   {user_id: 1, role_id: 1}
 	])
+
+user_profiles = UserProfile.create([
+	{user_id: 1},
+	{user_id: 2, mail_pref_rev: false, mail_pref_rat: false},
+	{user_id: 3},
+	{user_id: 4},
+	{user_id: 5, mail_pref_rat: false}
+	])
