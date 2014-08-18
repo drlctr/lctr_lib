@@ -80,7 +80,26 @@ class UsersController < ApplicationController
     else
       redirect_to '/', alert:  "You do not have priviledges to view that page."
     end
+  end
 
+  def block_user
+    if current_user.is_admin?
+      u = User.find(params[:id])
+      u.add_role :blocked
+      redirect_to '/', alert:  "#{u.username} has been blocked."
+    else
+      redirect_to '/', alert: "You do not have priviledges to view that page."
+    end
+  end
+
+  def unblock_user
+    if current_user.is_admin?
+      u = User.find(params[:id])
+      u.remove_role :blocked
+      redirect_to '/', alert:  "#{u.username} has been unblocked."
+    else
+      redirect_to '/', alert: "You do not have priviledges to view that page."
+    end
   end
 
   def invite_user

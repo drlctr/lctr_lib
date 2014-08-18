@@ -9,7 +9,7 @@
     <div id="reviews">
       <%= render @book.reviews %>
     </div>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && !current_user.is_blocked? %>
       <strong>Add a Review</strong>
       <p>Click on number of stars for your rating</p>
       <%= rating_for @book, "user_rating" %>

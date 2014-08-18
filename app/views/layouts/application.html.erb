@@ -34,6 +34,9 @@
         <% if current_user.is_admin? %>
           <br><%= "You have admin rights." %>
         <% end %>
+        <% if current_user.is_blocked? %>
+          <br><%= "You have been blocked by the site admin.  You cannot review or rate." %>
+        <% end %>
         <hr/>
       </div>
     </div>
