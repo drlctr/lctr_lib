@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 		puts "Review_params = #{review_params}"
 		@review = @book.reviews.new(review_params)
 		if @review.save
+			AdminMailer.notify_about_review(@book,@review).deliver
 			redirect_to @book, notice: 'Thanks for your review!'
 		else
 			redirect_to @book, alert: 'Unable to add review'
@@ -12,7 +13,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def destroy
-		@review = @book.reviews.find(prarms[:id])
+		@review = @book.reviews.find(params[:id])
 		@review.destroy
 		redirect_to @book, notice: 'Review Deleted'
 	end

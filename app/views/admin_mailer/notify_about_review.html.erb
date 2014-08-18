@@ -1,4 +1,6 @@
-<p>Dear <%= @user.username %>:</p>
+<p>Dear <%= @book.user.username %>:</p>
 <br>
-<p>Somebody just reviewed your book!</p>
+<p><%= @review.user.username %> just reviewed your book!</p>
+<p>They said:</p>
+<p><%= @review.body %>
 <li> Book reviewed: <%= @book.title %>
