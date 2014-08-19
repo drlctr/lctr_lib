@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book=Book.first
+    puts "Book.first = #{Book.first.title}"
   end
 
   # GET /books/1

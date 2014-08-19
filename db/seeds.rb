@@ -6,11 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 books = Book.create([
-	{title: 'POODR', author: 'Metz', ISBN: '2222', user_id: 1},
-	{title: 'Fighter Combat', author: 'Shaw', ISBN: '2223', user_id: 2},
-	{title: 'Moneyball', author: 'Lewis', ISBN: '2224', user_id: 3},
-	{title: 'Dressing the Man', author: 'Flusser', ISBN: '2225', user_id: 4},
-	{title: 'New Kind of Science', author: 'Wolfram', ISBN: '2226', user_id: 5}
+	{title: 'POODR', author: 'Metz', ISBN: '2222', user_id: 1, status: "approved", cover_file_name: "POODR_metz.jpg", cover_content_type: "image/jpeg", cover_file_size: 8360},
+	{title: 'Fighter Combat', author: 'Shaw', ISBN: '2223', user_id: 2, status: "approved", cover_file_name: "fighter_combat_shaw.jpg", cover_content_type: "image/jpeg", cover_file_size: 5900},
+	{title: 'Moneyball', author: 'Lewis', ISBN: '2224', user_id: 3, status: "deactivated", cover_file_name: "moneyball_lewis.jpg", cover_content_type: "image/jpeg", cover_file_size: 5336},
+	{title: 'Dressing the Man', author: 'Flusser', ISBN: '2225', user_id: 4, status: "submitted", cover_file_name: "dressing_the_man_flusser.jpg", cover_content_type: "image/jpeg", cover_file_size: 7912},
+	{title: 'New Kind of Science', author: 'Wolfram', ISBN: '2226', user_id: 5, status: "approved", cover_file_name: "new_kind_of_science_wolfram.jpg", cover_content_type: "image/jpeg", cover_file_size: 5354},
+	{title: 'Gravitation and Cosmology', author: 'Weinberg', ISBN: '2227', user_id: 2, status: "submitted", cover_file_name: "grav_and_cos_weinberg.jpg", cover_content_type: "image/jpeg", cover_file_size: 2796}
 	])
 
 users = User.create([
@@ -38,7 +39,7 @@ roles = Role.create([
 	])
 
 users_roles = UsersRole.create([
-  {user_id: 1, role_id: 1}
+  {user_id: 1, role_id: 1},
 	])
 
 user_profiles = UserProfile.create([

@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
 
-	validates_presence_of :title, :author, :ISBN
+
 
 	belongs_to :user
 	has_many :reviews
@@ -8,6 +8,12 @@ class Book < ActiveRecord::Base
 	  url: "/assets/books/:id/:style/:basename.:extension",
 	  path: ":rails_root/public/assets/books/:id/:style/:basename.:extension"
 	
+  # default_scope { order("title ASC")}
+  scope :submitted, -> {where(status: submitted)}
+  scope :approved, -> {where(status: approved)}
+  scope :deactivated, -> {where(status: deactivated)}
+
+	validates_presence_of :title, :author, :ISBN	
 	validates_attachment_file_name :cover, matches: 
 	  [/jpe?g\Z/,/png\Z/,/gif\Z/]
   validates_attachment_presence :cover
