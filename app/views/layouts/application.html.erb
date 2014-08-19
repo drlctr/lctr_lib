@@ -31,6 +31,10 @@
         <% if user_signed_in? %>
           <%= "Signed in as #{current_user.username}." %>
         <% end %>
+        <% if user_masquerade? %>
+          <br><%= "Currently masquerading.  " %>
+          <%= link_to "Reverse masquerade", back_masquerade_path(current_user) %>
+        <% end %>
         <% if current_user.is_admin? %>
           <br><%= "You have admin rights." %>
         <% end %>
