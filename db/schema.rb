@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818052422) do
+ActiveRecord::Schema.define(version: 20140819014836) do
 
   create_table "average_caches", force: true do |t|
     t.integer  "rater_id"
@@ -29,6 +29,10 @@ ActiveRecord::Schema.define(version: 20140818052422) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "overall_averages", force: true do |t|

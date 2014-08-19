@@ -2,6 +2,8 @@
   
   <div class="large-9 columns" role="content">
 
+    <%= image_tag @book.cover.url(:small) %><br>
+
     <p>
       <strong>Title:</strong>
       <%= @book.title %>
