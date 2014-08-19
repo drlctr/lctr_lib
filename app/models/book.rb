@@ -8,7 +8,7 @@ class Book < ActiveRecord::Base
 	  url: "/assets/books/:id/:style/:basename.:extension",
 	  path: ":rails_root/public/assets/books/:id/:style/:basename.:extension"
 	
-  # default_scope { order("title ASC")}
+  default_scope { order("title ASC")}
   scope :submitted, -> {where(status: submitted)}
   scope :approved, -> {where(status: approved)}
   scope :deactivated, -> {where(status: deactivated)}

@@ -35,7 +35,8 @@ reviews = Review.create([
 
 roles = Role.create([
 	{name: "admin"},
-	{name: "blocked"}
+	{name: "blocked"},
+	{name: "guest"}
 	])
 
 users_roles = UsersRole.create([

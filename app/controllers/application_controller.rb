@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
   def create_guest_user
     u = User.create(username: "guest", 
       email: "guest_#{Time.now.to_i}#{rand(99)}@example.com")
+    u.add_role :guest
     u.save(validate: false)
     u
   end
