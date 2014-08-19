@@ -10,7 +10,7 @@ books = Book.create([
 	{title: 'Fighter Combat', author: 'Shaw', ISBN: '2223', user_id: 2, status: "approved", cover_file_name: "fighter_combat_shaw.jpg", cover_content_type: "image/jpeg", cover_file_size: 5900},
 	{title: 'Moneyball', author: 'Lewis', ISBN: '2224', user_id: 3, status: "deactivated", cover_file_name: "moneyball_lewis.jpg", cover_content_type: "image/jpeg", cover_file_size: 5336},
 	{title: 'Dressing the Man', author: 'Flusser', ISBN: '2225', user_id: 4, status: "submitted", cover_file_name: "dressing_the_man_flusser.jpg", cover_content_type: "image/jpeg", cover_file_size: 7912},
-	{title: 'New Kind of Science', author: 'Wolfram', ISBN: '2226', user_id: 5, status: "approved", cover_file_name: "new_kind_of_science_wolfram.jpg", cover_content_type: "image/jpeg", cover_file_size: 5354},
+	{title: 'A New Kind of Science', author: 'Wolfram', ISBN: '2226', user_id: 5, status: "approved", cover_file_name: "new_kind_of_science_wolfram.jpg", cover_content_type: "image/jpeg", cover_file_size: 5354},
 	{title: 'Gravitation and Cosmology', author: 'Weinberg', ISBN: '2227', user_id: 2, status: "submitted", cover_file_name: "grav_and_cos_weinberg.jpg", cover_content_type: "image/jpeg", cover_file_size: 2796}
 	])
 
