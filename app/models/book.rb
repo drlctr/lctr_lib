@@ -9,9 +9,10 @@ class Book < ActiveRecord::Base
 	  path: ":rails_root/public/assets/books/:id/:style/:basename.:extension"
 	
   default_scope { order("title ASC")}
-  scope :submitted, -> {where(status: submitted)}
-  scope :approved, -> {where(status: approved)}
-  scope :deactivated, -> {where(status: deactivated)}
+  scope :submitted, -> {where(status: 'submitted')}
+  scope :approved, -> {where(status: 'approved')}
+  scope :deactivated, -> {where(status: 'deactivated')}
+
 
 	validates_presence_of :title, :author, :ISBN	
 	validates_attachment_file_name :cover, matches: 

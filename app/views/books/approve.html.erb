@@ -1,0 +1,32 @@
+<h2>Book is now approved!</h2>
+
+<body>
+  
+  <div class="large-9 columns" role="content">
+
+    <%= image_tag @book.cover.url(:small) %><br>
+
+    <p>
+      <strong>Title:</strong>
+      <%= @book.title %>
+    </p>
+
+    <p>
+      <strong>Author:</strong>
+      <%= @book.author %>
+    </p>
+
+    <p>
+      <strong>ISBN:</strong>
+      <%= @book.ISBN %>
+    </p>
+
+
+    <%= link_to 'Edit', edit_book_path(@book) %> |
+    <%= link_to 'Back', books_path %>
+
+  </div>
+
+  <%= render '/layouts/sidebar' %>
+ 
+</body>
