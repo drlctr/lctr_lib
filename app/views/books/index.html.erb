@@ -29,8 +29,9 @@
                 <td><%= link_to 'Edit', edit_book_path(book) %></td>
               <% end %>
               <% if can? :destroy, book %>
-                <td><%= link_to 'Destroy', book, method: :delete, 
-                  data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Destroy / Deactivate', book, method: :delete, 
+                  data: { confirm: 'Are you sure?  If book has ratings or reviews,
+                    book will be deactivated.' } %></td>
               <% end %>
             </tr>
           <% end %>
@@ -51,6 +52,7 @@
             </tr>
           <% end %>          
         </tbody>
+
       <% if current_user.is_admin? %>
         <tbody>
           <tr><td><h5>Submitted books</h5></td></tr>        
@@ -62,8 +64,9 @@
               <td><%= rating_for book, "user_rating" %></td>
               <td><%= link_to 'Show', book %></td>
               <td><%= link_to 'Edit', edit_book_path(book) %></td>
-              <td><%= link_to 'Destroy', book, method: :delete, 
-                  data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy / Deactivate', book, method: :delete, 
+                  data: { confirm: 'Are you sure?  If book has ratings or reviews,
+                    book will be deactivated.' } %></td>
               <td><%= link_to 'Approve', approve_path(book) %>
             </tr>
           <% end %>          

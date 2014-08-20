@@ -23,5 +23,9 @@ class Book < ActiveRecord::Base
 
 
 	ratyrate_rateable "user_rating"
-	
+
+  def has_reviews?
+    self.reviews.count > 0
+  end
+
 end

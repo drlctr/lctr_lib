@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
   load_and_authorize_resource
 
+
   # GET /books
   # GET /books.json
   def index
@@ -61,20 +62,22 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
-    @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
-      format.json { head :no_content }
+    if @book.has_reviews? 
+      @book.status = 'deactivated'
+      @book.save
+      redirect_to books_url, notice: 'Book had ratings or reviews and has been deactivated.'
+    else
+      @book.destroy
+      respond_to do |format|
+        format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
   def approve
-    p "book id is #{@book.id}"
-    p "book title is #{@book.title}"
-    p "before:  status #{@book.status}"
     @book.status = "approved"
     @book.save
-    p "after: status #{@book.status}"
   end
 
   private
