@@ -3,31 +3,19 @@ class UsersController < InheritedResources::Base
   before_action :authenticate_user!
 
   def give_admin_priv
-    priv_change(:add)
+    role_change(:admin,:add)
   end
 
   def revoke_admin_priv
-    priv_change(:revoke)
+    role_change(:admin,:revoke)
   end
 
   def block_user
-    if current_user.is_admin?
-      u = User.find(params[:id])
-      u.add_role :blocked
-      redirect_to '/', alert:  "#{u.username} has been blocked."
-    else
-      redirect_to '/', alert: "You do not have priviledges to view that page."
-    end
+    role_change(:blocked,:add)
   end
 
   def unblock_user
-    if current_user.is_admin?
-      u = User.find(params[:id])
-      u.remove_role :blocked
-      redirect_to '/', alert:  "#{u.username} has been unblocked."
-    else
-      redirect_to '/', alert: "You do not have priviledges to view that page."
-    end
+    role_change(:blocked, :revoke)
   end
 
   def invite_user
@@ -38,22 +26,21 @@ class UsersController < InheritedResources::Base
 
   private
 
-    def priv_change(change)
-
+    def role_change(role, change)
       if current_user.is_admin?
         u = User.find(params[:id])
-          case change
-            when :add
-              u.add_role :admin
-              redirect_to '/', notice:  "#{u.username} now has admin priviledges."
-            when :revoke     
-              u.remove_role :admin
-              redirect_to '/', notice: "#{u.username} no longer has admin priviledges."
-            else
-              raise 'Unknown priv change param in users_controller'
-          end
+        case change
+          when :add
+            u.add_role role
+            redirect_to '/users', notice:  "#{u.username} now is #{role.to_s}."
+          when :revoke     
+            u.remove_role role
+            redirect_to '/users', notice: "#{u.username} is no longer #{role.to_s}."
+          else
+            raise 'Unknown change param in users_controller'
+        end
       else
-        redirect_to '/', alert: "You do not have priviledges to view that page."
+        redirect_to '/', alert: "You do not have privileges to take that action."
       end
     end
 
