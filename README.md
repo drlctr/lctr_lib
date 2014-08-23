@@ -11,5 +11,7 @@ Installation is simple.  Install the code, run "bundle install", and setup the d
 
 This app was written in Ruby 2.1.2 and runs best in that version.
 
+As admin, you will need to periodically delete the guest accounts via the button on the Users page.  They are currently not automatically destoryed in case you need them for metrics.
+
 [![Code Climate](https://codeclimate.com/github/drlctr/lctr_lib/badges/gpa.svg)](https://codeclimate.com/github/drlctr/lctr_lib)
 

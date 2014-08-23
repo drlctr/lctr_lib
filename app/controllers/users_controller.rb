@@ -2,6 +2,13 @@ class UsersController < InheritedResources::Base
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  def destroy_guests
+    User.all.each do |user|
+      user.destroy if user.is_guest?
+    end
+    redirect_to '/users', notice: "Guest accounts have been destroyed"
+  end
+
   def give_admin_priv
     role_change(:admin,:add)
   end
@@ -21,7 +28,6 @@ class UsersController < InheritedResources::Base
   def invite_user
     User.invite!(email: params[:invite_email])
     redirect_to '/', notice: "#{params[:invite_email]} has been invited"
-
   end
 
   private

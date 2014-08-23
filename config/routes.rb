@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   #   end
 root to: 'books#index'
 post '/users/invite_user', to: 'users#invite_user'
+post '/users/destroy_guests', to: 'users#destroy_guests'
 get '/books/approve/:id', to: 'books#approve', as: 'approve'
 get ':controller/:action/:id'
 
