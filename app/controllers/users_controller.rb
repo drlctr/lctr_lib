@@ -7,7 +7,7 @@ class UsersController < InheritedResources::Base
   end
 
   def revoke_admin_priv
-    role_change(:admin,:revoke)
+    role_change(:admin,:remove)
   end
 
   def block_user
@@ -15,7 +15,7 @@ class UsersController < InheritedResources::Base
   end
 
   def unblock_user
-    role_change(:blocked, :revoke)
+    role_change(:blocked, :remove)
   end
 
   def invite_user
@@ -29,12 +29,11 @@ class UsersController < InheritedResources::Base
     def role_change(role, change)
       if current_user.is_admin?
         u = User.find(params[:id])
-        case change
+        u.send("#{change.to_s}_role",role)
+        case change 
           when :add
-            u.add_role role
-            redirect_to '/users', notice:  "#{u.username} now is #{role.to_s}."
-          when :revoke     
-            u.remove_role role
+            redirect_to '/users', notice: "#{u.username} now is #{role.to_s}."
+          when :remove
             redirect_to '/users', notice: "#{u.username} is no longer #{role.to_s}."
           else
             raise 'Unknown change param in users_controller'
