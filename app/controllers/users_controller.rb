@@ -3,23 +3,11 @@ class UsersController < InheritedResources::Base
   before_action :authenticate_user!
 
   def give_admin_priv
-    if current_user.is_admin?
-      u = User.find(params[:id])
-      u.add_role :admin
-      redirect_to '/', notice:  "#{u.username} now has admin priviledges."
-    else
-      redirect_to '/', alert:  "You do not have priviledges to view that page."
-    end
+    priv_change(:add)
   end
 
   def revoke_admin_priv
-    if current_user.is_admin?
-      u = User.find(params[:id])
-      u.remove_role :admin
-      redirect_to '/', notice: "#{u.username} no longer has admin priviledges."
-    else
-      redirect_to '/', alert:  "You do not have priviledges to view that page."
-    end
+    priv_change(:revoke)
   end
 
   def block_user
@@ -49,6 +37,26 @@ class UsersController < InheritedResources::Base
   end
 
   private
+
+    def priv_change(change)
+
+      if current_user.is_admin?
+        u = User.find(params[:id])
+          case change
+            when :add
+              u.add_role :admin
+              redirect_to '/', notice:  "#{u.username} now has admin priviledges."
+            when :revoke     
+              u.remove_role :admin
+              redirect_to '/', notice: "#{u.username} no longer has admin priviledges."
+            else
+              raise 'Unknown priv change param in users_controller'
+          end
+      else
+        redirect_to '/', alert: "You do not have priviledges to view that page."
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])

@@ -29,11 +29,6 @@ class BooksController < InheritedResources::Base
       @book.save
       redirect_to books_url, notice: 'Book had ratings or reviews and has been deactivated.'
     else
-      @book.destroy
-      # respond_to do |format|
-      #   format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
-      #   format.json { head :no_content }
-      # end
       destroy!
     end
   end
