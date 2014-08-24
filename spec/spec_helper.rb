@@ -20,6 +20,16 @@ require 'coveralls'
 SimpleCov.start 'rails' do
   require 'simplecov-badge'
   add_filter "/app/admin"
+  add_filter "/vendor"
+  add_filter "/app/assets"
+  add_filter "rater_controller.rb"
+  add_filter "/concerns"
+  add_filter "average_cache.rb"
+  add_filter "overall_average.rb"
+  add_filter "rate.rb"
+  add_filter "rating_cache.rb"
+
+
   SimpleCov::Formatter::BadgeFormatter.generate_groups = false
   SimpleCov::Formatter::BadgeFormatter.strength_foreground = true
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
