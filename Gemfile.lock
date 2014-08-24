@@ -40,6 +40,8 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.4)
       climate_control (>= 0.0.3, < 1.0)
+    codeclimate-test-reporter (0.4.0)
+      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -76,6 +78,9 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     foundation-rails (5.3.1.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -211,12 +216,14 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   cancancan
+  codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   coveralls
   devise
   devise_invitable
   devise_masquerade
   factory_girl_rails
+  figaro
   foundation-rails
   inherited_resources
   jbuilder (~> 2.0)

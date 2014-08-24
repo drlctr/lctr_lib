@@ -17,6 +17,7 @@ gem 'paperclip'
 gem 'devise_masquerade'
 gem 'inherited_resources'
 gem 'rake'
+gem 'figaro'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -40,6 +41,7 @@ group :development, :test do
 	gem 'simplecov'
 	gem 'simplecov-badge'
 	gem 'coveralls', require: false
+	gem "codeclimate-test-reporter", require: false
 end
 
 group :production do
