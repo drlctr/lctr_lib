@@ -16,6 +16,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
+require "codeclimate-test-reporter"
 require 'coveralls'
 SimpleCov.start 'rails' do
   require 'simplecov-badge'
@@ -29,7 +30,6 @@ SimpleCov.start 'rails' do
   add_filter "rate.rb"
   add_filter "rating_cache.rb"
 
-
   SimpleCov::Formatter::BadgeFormatter.generate_groups = false
   SimpleCov::Formatter::BadgeFormatter.strength_foreground = true
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
@@ -38,6 +38,8 @@ SimpleCov.start 'rails' do
       Coveralls::SimpleCov::Formatter
   ]
 end
+
+CodeClimate::TestReporter.start
 Coveralls.wear!('rails')
 
 RSpec.configure do |config|
