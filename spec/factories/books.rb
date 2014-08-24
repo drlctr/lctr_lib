@@ -9,9 +9,8 @@ FactoryGirl.define do
     cover {fixture_file_upload(Rails.root.join('spec','covers','test.jpg'),'image/jpg')} 
   end
 
-  factory :bad_book do
-  	title "MyString"
-  	author "MyString"
+  factory :bad_book, parent: :book do
+    title ""
   end
 
 end

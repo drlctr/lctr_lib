@@ -29,8 +29,10 @@ RSpec.describe BooksController, :type => :controller do
 
   before :each do
     @book = FactoryGirl.create(:book)
+    @bad_book=FactoryGirl.build(:bad_book)
     user = FactoryGirl.create(:user)
     sign_in user
+    user.add_role :admin
   end
 
   describe "GET index" do
@@ -99,8 +101,10 @@ RSpec.describe BooksController, :type => :controller do
     describe "with valid params" do
 
       it "updates the requested book" do
-        Book.any_instance.should_receive(:update).with({"title" => "Test_change"})
-        put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:book, title: 'Test_change')}, valid_session
+        Book.any_instance.should_receive(:update).with(
+          {"title" => "Test_change", "author" => "MyString", "ISBN" => 1})
+        put :update, 
+          {:id => @book.to_param, :book => FactoryGirl.attributes_for(:book, "title" => "Test_change")}, valid_session
       end
 
       it "assigns the requested book as @book" do
@@ -109,15 +113,16 @@ RSpec.describe BooksController, :type => :controller do
       end
 
       it "redirects to the book" do
+        p "In redirect, @book is #{@book.title}, id is #{@book.id}"
         put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:book)}, valid_session
-        expect(response).to redirect_to(book)
+        expect(response).to redirect_to(@book)
       end
     end
 
     describe "with invalid params" do
       it "assigns the book as @book" do
         put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:bad_book)}, valid_session
-        expect(assigns(:book)).to eq(book)
+        expect(assigns(:book)).to eq(@book)
       end
 
       it "re-renders the 'edit' template" do

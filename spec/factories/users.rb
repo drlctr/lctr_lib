@@ -7,4 +7,9 @@ FactoryGirl.define do
   	password 'testing22'
   	password_confirmation 'testing22'
   end
+
+  factory :bad_user, parent: :user do
+  	username ''
+  end
+
 end

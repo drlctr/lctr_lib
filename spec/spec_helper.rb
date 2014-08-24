@@ -19,7 +19,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'simplecov'
 require "codeclimate-test-reporter"
 require 'coveralls'
-# require 'rspec/rails'
+
 SimpleCov.start 'rails' do
   require 'simplecov-badge'
   add_filter "/app/admin"
@@ -45,9 +45,7 @@ CodeClimate::TestReporter.start
 Coveralls.wear!('rails')
 
 RSpec.configure do |config|
-  # config.include Devise::TestHelpers, type: :controller
-  # config.include FactoryGirl::Syntax::Methods
-  # config.include ControllersHelper
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
