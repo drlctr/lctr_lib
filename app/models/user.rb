@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
 
 	validates_presence_of :username
 
-	has_many :books
-	has_many :reviews
-	has_one :user_profile
+	has_many :books, dependent: :delete_all
+	has_many :reviews, dependent: :delete_all
+	has_one :user_profile, dependent: :delete
 	accepts_nested_attributes_for :user_profile
 
 	ratyrate_rater
