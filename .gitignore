@@ -15,7 +15,8 @@
 /log/*.log
 /tmp
 
-
+#Ignore the coverage folder
+/coverage
 
 
 # Ignore application configuration
