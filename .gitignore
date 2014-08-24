@@ -16,7 +16,7 @@
 /tmp
 
 #Ignore the coverage folder
-/coverage
+/coverage/*
 
 
 # Ignore application configuration
