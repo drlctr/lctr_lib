@@ -16,7 +16,19 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
-SimpleCov.start 'rails'
+require 'coveralls'
+SimpleCov.start 'rails' do
+  require 'simplecov-badge'
+  add_filter "/app/admin"
+  SimpleCov::Formatter::BadgeFormatter.generate_groups = false
+  SimpleCov::Formatter::BadgeFormatter.strength_foreground = true
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCov::Formatter::BadgeFormatter,
+      Coveralls::SimpleCov::Formatter
+  ]
+end
+Coveralls.wear!('rails')
 
 RSpec.configure do |config|
 # The settings below are suggested to provide a good initial experience

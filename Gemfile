@@ -16,6 +16,7 @@ gem 'foundation-rails'
 gem 'paperclip'
 gem 'devise_masquerade'
 gem 'inherited_resources'
+gem 'rake'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -38,6 +39,7 @@ group :development, :test do
 	gem 'binding_of_caller'
 	gem 'simplecov'
 	gem 'simplecov-badge'
+	gem 'coveralls', require: false
 end
 
 group :production do
