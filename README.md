@@ -15,5 +15,5 @@ As admin, you will need to periodically delete the guest accounts via the button
 
 [![Code Climate](https://codeclimate.com/github/drlctr/lctr_lib/badges/gpa.svg)](https://codeclimate.com/github/drlctr/lctr_lib)
 
-[![Coverage Status](https://github.com/drlctr/lctr_lib/blob/master/coverage/coverage-badge.png)]
+![Coverage Status](https://github.com/drlctr/lctr_lib/blob/master/coverage/coverage-badge.png)
 
