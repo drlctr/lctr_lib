@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 
 gem 'rails', '4.1.4'
-gem 'sqlite3'
 gem 'devise'
 gem 'devise_invitable'
 gem 'actionmailer'
@@ -33,7 +32,8 @@ group :development do
   gem 'spring'
 end
 
-group :development, :test do 
+group :development, :test do
+	gem 'sqlite3'
 	gem 'rspec-rails'
 	gem 'factory_girl_rails'
 	gem 'better_errors'
