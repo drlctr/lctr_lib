@@ -11,9 +11,9 @@ Installation is simple.  Install the code, run "bundle install", and setup the d
 
 This app was written in Ruby 2.1.2 and runs best in that version.
 
-As admin, you will need to periodically delete the guest accounts via the button on the Users page.  They are currently not automatically destoryed in case you need them for metrics.
+As admin, you will need to periodically delete the guest accounts via the button on the Users page.  They are currently not automatically destroyed in case you need them for metrics.
 
 [![Code Climate](https://codeclimate.com/github/drlctr/lctr_lib/badges/gpa.svg)](https://codeclimate.com/github/drlctr/lctr_lib)
 
-[![Coverage Status](https://coveralls.io/repos/drlctr/lctr_lib/badge.png?branch=master)](https://coveralls.io/r/drlctr/lctr_lib?branch=master)
+![Coverage Status](https://github.com/drlctr/lctr_lib/blob/master/coverage/coverage-badge.png)
 
