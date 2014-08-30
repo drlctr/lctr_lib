@@ -4,17 +4,19 @@
   <%= render '/layouts/sidebar2' %>
   </div>
 
-  <h5>Reviews & Ratings for <%= @book.title %>: </h5>
-  <ul class="side-nav">
-    <div id="reviews">
-      <%= render @book.reviews %>
-    </div>
-    <% if user_signed_in? && !current_user.is_blocked? && !current_user.is_guest? && !(@book.status == 'deactivated')%>
-      <strong>Add a Review</strong>
-      <p>Click on number of stars for your rating</p>
-      <%= rating_for @book, "user_rating" %>
-      <%= render file: 'reviews/new' %>
-    <% end %>
-  </ul>
+  <% unless @book.nil? %>
+    <h5>Reviews & Ratings for <%= @book.title %>: </h5>
+    <ul class="side-nav">
+      <div id="reviews">
+        <%= render @book.reviews %>
+      </div>
+      <% if user_signed_in? && !current_user.is_blocked? && !current_user.is_guest? && !(@book.status == 'deactivated')%>
+        <strong>Add a Review</strong>
+        <p>Click on number of stars for your rating</p>
+        <%= rating_for @book, "user_rating" %>
+        <%= render file: 'reviews/new' %>
+      <% end %>
+    </ul>
+  <% end %>
 
 </aside>

@@ -8,7 +8,7 @@
 	
 case Rails.env
 when "development" || "test"
-	books = Book.create([
+	books = Book.create!([
 		{title: 'POODR', author: 'Metz', ISBN: '2222', user_id: 1, status: "approved", cover_file_name: "POODR_metz.jpg", cover_content_type: "image/jpeg", cover_file_size: 8360},
 		{title: 'Fighter Combat', author: 'Shaw', ISBN: '2223', user_id: 2, status: "approved", cover_file_name: "fighter_combat_shaw.jpg", cover_content_type: "image/jpeg", cover_file_size: 5900},
 		{title: 'Moneyball', author: 'Lewis', ISBN: '2224', user_id: 3, status: "deactivated", cover_file_name: "moneyball_lewis.jpg", cover_content_type: "image/jpeg", cover_file_size: 5336},
@@ -17,7 +17,7 @@ when "development" || "test"
 		{title: 'Gravitation and Cosmology', author: 'Weinberg', ISBN: '2227', user_id: 2, status: "submitted", cover_file_name: "grav_and_cos_weinberg.jpg", cover_content_type: "image/jpeg", cover_file_size: 2796}
 		])
 
-	users = User.create([
+	users = User.create!([
 		{username: 'Pete', email: 'pete@petenet.net', password: 'testing22', password_confirmation: 'testing22'},
 		{username: 'Fred', email: 'fred@fred.net', password: 'testing22', password_confirmation: 'testing22'},
 		{username: 'Jane', email: 'jane@jnet.net', password: 'testing22', password_confirmation: 'testing22'},
@@ -25,7 +25,7 @@ when "development" || "test"
 		{username: 'Dick', email: 'richard@rnet.com', password: 'testing22', password_confirmation: 'testing22'},
 		])
 
-	reviews = Review.create([
+	reviews = Review.create!([
 		{book_id: 1, body: 'Good', user_id: 1},
 		{book_id: 1, body: 'bad', user_id: 2},
 		{book_id: 1, body: 'meh', user_id: 3},
@@ -36,17 +36,17 @@ when "development" || "test"
 		{book_id: 2, body: 'bliyhee', user_id: 3}
 		])
 
-	roles = Role.create([
+	roles = Role.create!([
 		{name: "admin"},
 		{name: "blocked"},
 		{name: "guest"}
 		])
 
-	users_roles = UsersRole.create([
+	users_roles = UsersRole.create!([
 	  {user_id: 1, role_id: 1},
 		])
 
-	user_profiles = UserProfile.create([
+	user_profiles = UserProfile.create!([
 		{user_id: 1},
 		{user_id: 2, mail_pref_rev: false, mail_pref_rat: false},
 		{user_id: 3},
@@ -54,21 +54,21 @@ when "development" || "test"
 		{user_id: 5, mail_pref_rat: false}
 		])
 when "production"
-	users = User.create([
+	users = User.create!([
 		{username: 'admin', email: 'admin@lecter.com', password: 'password', password_confirmation: 'password'}
 		])
 
-	roles = Role.create([
+	roles = Role.create!([
 		{name: "admin"},
 		{name: "blocked"},
 		{name: "guest"}
 		])
 
-	users_roles = UsersRole.create([
+	users_roles = UsersRole.create!([
 	  {user_id: 1, role_id: 1}
 		])
 
-	user_profiles = UserProfile.create([
+	user_profiles = UserProfile.create!([
 		{user_id: 1},
 		])
 end
