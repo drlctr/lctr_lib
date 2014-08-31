@@ -42,7 +42,7 @@ class BooksController < InheritedResources::Base
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :ISBN, :cover)
+      params.require(:book).permit(:title, :author, :ISBN, :cover, :user_id)
     end
 
 end
