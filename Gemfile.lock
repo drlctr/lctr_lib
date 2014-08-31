@@ -146,6 +146,8 @@ GEM
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    rest_client (1.7.3)
+      netrc (~> 0.7.7)
     rolify (3.4.0)
     rspec-core (3.0.3)
       rspec-support (~> 3.0.0)
@@ -234,6 +236,7 @@ DEPENDENCIES
   rails_12factor
   rake
   ratyrate
+  rest_client
   rolify
   rspec-rails
   sass-rails (~> 4.0.3)
