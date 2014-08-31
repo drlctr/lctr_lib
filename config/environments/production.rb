@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  require 'rest_client'
+
   response = RestClient.get "https://mailtrap.io/api/v1/inboxes.json?api_token=ENV['MAILTRAP_API_TOKEN']"
 
   first_inbox = JSON.parse(response)[0]
