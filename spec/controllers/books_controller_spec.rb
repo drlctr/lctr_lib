@@ -113,7 +113,6 @@ RSpec.describe BooksController, :type => :controller do
       end
 
       it "redirects to the book" do
-        p "In redirect, @book is #{@book.title}, id is #{@book.id}"
         put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:book)}, valid_session
         expect(response).to redirect_to(@book)
       end

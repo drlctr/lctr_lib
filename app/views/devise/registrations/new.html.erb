@@ -1,9 +1,7 @@
 <h2>Sign up</h2>
 
 <% u = resource.build_user_profile %>
-<%= p u %>
-<%= p "user id is #{u.user_id}" %>
-<%= p "#{u.user_id.nil?}" %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 

@@ -13,4 +13,10 @@ FactoryGirl.define do
     title ""
   end
 
+  factory :book_with_rvw do
+  	after_create do |book|
+  		create(:review, book: book)
+  	end
+  end
+
 end

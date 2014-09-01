@@ -11,38 +11,40 @@ RSpec.describe ReviewsController, :type => :controller do
 
   before :each do
     @book = FactoryGirl.create(:book)
-    # @review = FactoryGirl.create(:review, book: @book)
+    @review = FactoryGirl.create(:review, book: @book)
   end
 
   describe "create" do
     it "assigns a new review as @review" do
-      @review = Review.create FactoryGirl.attributes_for(:review) #, valid_session
-      expect(assigns(:review)).to be_a_new(Review)
+    	p "FactoryGirl.attributes for(:reveiew) = #{FactoryGirl.attributes_for(:review)}"
+    	p "FactoryGirl.attributes for(@reveiew) = #{FactoryGirl.attributes_for(@review)}"
+      @review = Review.create FactoryGirl.attributes_for(:review)
+      expect(assigns(@review)).to be_a_new(Review)
     end
   end
 
   describe "create" do
     it "creates a new Review" do
       expect {
-        Review.create FactoryGirl.attributes_for(:review) #, valid_session
+        Review.create FactoryGirl.attributes_for(@review) #, valid_session
       }.to change(Review, :count).by(1)
     end
 
     it "assigns a newly created review as @review" do
-      @review = Review.create FactoryGirl.attributes_for(:review) #, valid_session
-      expect(assigns(:review)).to be_a(Review)
-      expect(assigns(:review)).to be_persisted
+      @review = Review.create FactoryGirl.attributes_for(@review) #, valid_session
+      expect(assigns(@review)).to be_a(Review)
+      expect(assigns(@review)).to be_persisted
     end
 
     it "redirects to the created book" do
       # @review.destroy
-      @review = Review.create FactoryGirl.attributes_for(:review) #, valid_session
+      @review = Review.create FactoryGirl.attributes_for(@review) #, valid_session
       expect(response).to redirect_to(@book)
     end
 
     it "sends an email to the reviewee" do
       expect {
-        Review.create FactoryGirl.attributes_for(:review) #, valid_session
+        Review.create FactoryGirl.attributes_for(@review) #, valid_session
       }.to change {ActionMailer::Base.deliveries.count }.by(1)
     end
   end

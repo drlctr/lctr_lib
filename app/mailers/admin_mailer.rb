@@ -11,7 +11,6 @@ class AdminMailer < ActionMailer::Base
 
   def notify_about_rating(book_id, stars, rater)
   	@book = Book.find(book_id)
-  	puts "The book is #{Book.find(book_id).title}"
   	@stars = stars
   	@rater = rater
   	if @book.user.user_profile.mail_pref_rat
