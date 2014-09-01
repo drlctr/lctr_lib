@@ -1,16 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # require 'rest_client'
-
-  # response = RestClient.get "https://mailtrap.io/api/v1/inboxes.json?api_token=ENV['MAILTRAP_API_TOKEN']"
-
-#   first_inbox = JSON.parse(response)[0]
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => '23717ae3d8d65eb6f',
-    :password => 'd90062f454e3de',
+    :user_name => ENV['MAILTRAP_USERNAME'],
+    :password => ENV['MAILTRAP_PASSWORD'],
     :address => 'mailtrap.io',
     :domain => 'mailtrap.io',
     :port => '2525',
