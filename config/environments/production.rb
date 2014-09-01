@@ -7,16 +7,16 @@ Rails.application.configure do
 
 #   first_inbox = JSON.parse(response)[0]
 
-# config.action_mailer.delivery_method = :smtp
-# config.action_mailer.smtp_settings = {
-#   :user_name => '23717ae3d8d65eb6f',
-#   :password => 'd90062f454e3de',
-#   :address => 'mailtrap.io',
-#   :domain => 'mailtrap.io',
-#   :port => '2525',
-#   :authentication => :cram_md5,
-#   :enable_starttls_auto => true
-# }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => '23717ae3d8d65eb6f',
+    :password => 'd90062f454e3de',
+    :address => 'mailtrap.io',
+    :domain => 'mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5,
+    :enable_starttls_auto => true
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
