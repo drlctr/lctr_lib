@@ -40,7 +40,6 @@ group :development, :test do
 	gem 'binding_of_caller'
 	gem 'simplecov'
 	gem 'simplecov-badge'
-	gem 'coveralls', require: false
 	gem "codeclimate-test-reporter", require: false
 end
 

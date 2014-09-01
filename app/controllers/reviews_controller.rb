@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
 	before_action :load_book
 
 	def create
-		puts "Current user is #{current_user.username}, is he blocked? #{current_user.is_blocked?}"
 		@review = @book.reviews.new(review_params)
 		if @review.save
 			AdminMailer.notify_about_review(@book,@review).deliver

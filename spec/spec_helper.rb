@@ -17,8 +17,7 @@ ENV["RAILS_ENV"] ||= 'test'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require 'simplecov'
-require "codeclimate-test-reporter"
-require 'coveralls'
+# require "codeclimate-test-reporter"
 
 SimpleCov.start 'rails' do
   require 'simplecov-badge'
@@ -36,13 +35,11 @@ SimpleCov.start 'rails' do
   SimpleCov::Formatter::BadgeFormatter.strength_foreground = true
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
       SimpleCov::Formatter::HTMLFormatter,
-      SimpleCov::Formatter::BadgeFormatter,
-      Coveralls::SimpleCov::Formatter
+      SimpleCov::Formatter::BadgeFormatter
   ]
 end
 
-CodeClimate::TestReporter.start
-Coveralls.wear!('rails')
+# CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
 
