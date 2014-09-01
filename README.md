@@ -7,6 +7,8 @@ This project is used to track books and allow user to add, rate and review them.
 
 Installation is simple.  Install the code, run "bundle install", and setup the database with "rake db:setup".  This will populate the database with a single user, "admin" with password "password".  Sign up as a user, log out, log in as "admin", give yourself admin privileges, log out of admin, log back into your account (now with admin privileges), then destroy the admin account.
 
+Or you can visit the app at http:/lctr-lib.heroku.com.
+
 **DON'T LEAVE THE ADMIN ACCOUNT IN PLACE WITH THE USERNAME AND PASSWORD**
 
 This app was written in Ruby 2.1.2 and runs best in that version.
