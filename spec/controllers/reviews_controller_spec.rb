@@ -17,10 +17,7 @@ RSpec.describe ReviewsController, :type => :controller do
 
   describe "create" do
     it "assigns a new review as @review" do
-    	p "FactoryGirl.attributes for(:review) = #{FactoryGirl.attributes_for(:review)}"
       @review = Review.create FactoryGirl.attributes_for(:review)
-      p "@review :  #{@review.book.title}, #{@review.body}, book_id: #{@review.book_id}"
-      p "assigns?  #{assigns(@review).nil?}"
       expect(assigns(@review)).to be_a_new(Review)
     end
   end
@@ -39,9 +36,7 @@ RSpec.describe ReviewsController, :type => :controller do
     end
 
     it "redirects to the created review's book" do
-      p "numrvw = #{Review.count}"
       @review2 = post :create, FactoryGirl.attributes_for(:review)
-      p "@review2:  #{@review2.body}, num rvw = #{Review.count}"
       expect(response).to render_template('/books/show')
     end
 

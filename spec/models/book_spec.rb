@@ -10,7 +10,7 @@ RSpec.describe Book, :type => :model do
 
   it 'detects when the book does not have reviews' do
   	@book = FactoryGirl.create(:book)
-  	expecte(@book.has_reviews?).to eq(false)
+  	expect(@book.has_reviews?).to eq(false)
   end
 
 end

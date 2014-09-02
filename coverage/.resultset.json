@@ -153,7 +153,7 @@
         null,
         null,
         null,
-        87,
+        90,
         3,
         3,
         3,
@@ -293,21 +293,6 @@
         null,
         null
       ],
-      "/home/lecter/Ruby/UWERuby/RailsWorkSpring2014/lctr_lib/app/models/review.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/lecter/Ruby/UWERuby/RailsWorkSpring2014/lctr_lib/app/models/user_profile.rb": [
-        1,
-        null,
-        1,
-        null,
-        null
-      ],
       "/home/lecter/Ruby/UWERuby/RailsWorkSpring2014/lctr_lib/app/models/ability.rb": [
         1,
         1,
@@ -332,8 +317,23 @@
         null,
         null,
         null
+      ],
+      "/home/lecter/Ruby/UWERuby/RailsWorkSpring2014/lctr_lib/app/models/review.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/lecter/Ruby/UWERuby/RailsWorkSpring2014/lctr_lib/app/models/user_profile.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1409618017
+    "timestamp": 1409622434
   }
 }

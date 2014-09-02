@@ -2,11 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "books/edit", :type => :view do
   before(:each) do
-    @book = assign(:book, Book.create!(
-      :title => "MyString",
-      :author => "MyString",
-      :ISBN => 1
-    ))
+    @book = assign(:book, FactoryGirl.create(:book))
   end
 
   it "renders the edit book form" do
