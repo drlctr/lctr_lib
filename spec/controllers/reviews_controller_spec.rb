@@ -11,14 +11,16 @@ RSpec.describe ReviewsController, :type => :controller do
 
   before :each do
     @book = FactoryGirl.create(:book)
-    @review = FactoryGirl.create(:review, book: @book)
+    @user = FactoryGirl.create(:user)
+    @review = FactoryGirl.create(:review, book: @book, user: @user)
   end
 
   describe "create" do
     it "assigns a new review as @review" do
-    	p "FactoryGirl.attributes for(:reveiew) = #{FactoryGirl.attributes_for(:review)}"
-    	p "FactoryGirl.attributes for(@reveiew) = #{FactoryGirl.attributes_for(@review)}"
+    	p "FactoryGirl.attributes for(:review) = #{FactoryGirl.attributes_for(:review)}"
       @review = Review.create FactoryGirl.attributes_for(:review)
+      p "@review :  #{@review.book.title}, #{@review.body}, book_id: #{@review.book_id}"
+      p "assigns?  #{assigns(@review).nil?}"
       expect(assigns(@review)).to be_a_new(Review)
     end
   end
@@ -26,25 +28,26 @@ RSpec.describe ReviewsController, :type => :controller do
   describe "create" do
     it "creates a new Review" do
       expect {
-        Review.create FactoryGirl.attributes_for(@review) #, valid_session
+        Review.create FactoryGirl.attributes_for(:review)
       }.to change(Review, :count).by(1)
     end
 
     it "assigns a newly created review as @review" do
-      @review = Review.create FactoryGirl.attributes_for(@review) #, valid_session
+      @review = Review.create FactoryGirl.attributes_for(:review)
       expect(assigns(@review)).to be_a(Review)
       expect(assigns(@review)).to be_persisted
     end
 
-    it "redirects to the created book" do
-      # @review.destroy
-      @review = Review.create FactoryGirl.attributes_for(@review) #, valid_session
-      expect(response).to redirect_to(@book)
+    it "redirects to the created review's book" do
+      p "numrvw = #{Review.count}"
+      @review2 = post :create, FactoryGirl.attributes_for(:review)
+      p "@review2:  #{@review2.body}, num rvw = #{Review.count}"
+      expect(response).to render_template('/books/show')
     end
 
     it "sends an email to the reviewee" do
       expect {
-        Review.create FactoryGirl.attributes_for(@review) #, valid_session
+        Review.create FactoryGirl.attributes_for(:review)
       }.to change {ActionMailer::Base.deliveries.count }.by(1)
     end
   end
@@ -52,7 +55,7 @@ RSpec.describe ReviewsController, :type => :controller do
   describe "DELETE destroy" do
     it "destroys the requested review" do
       expect {
-        @review.destroy 
+        get :destroy, {id: @review.id, book_id: @review.book_id} 
       }.to change(Review, :count).by(-1)
     end
   end

@@ -107,14 +107,13 @@ end
 
 def cur_user
   user = FactoryGirl.build(:user)
-  stub(controller).current_user { user }
+  controller.stub(:current_user) {user}
   user
 end
 
 def cur_admin
   user = FactoryGirl.build(:user)
   user.add_role(:admin)
-  # stub(controller).current_user { user }
   controller.stub(:current_user) {user}
   user
 end

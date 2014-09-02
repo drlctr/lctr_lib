@@ -27,86 +27,49 @@ RSpec.describe UsersController, :type => :controller do
     sign_in @user
   end
 
-    it 'destroys guest accounts' do
-      @user.add_role(:guest)
-      expect {
-        get :destroy_guests }.to change(User, :count).by(-1)
-      end
-
-    it 'gives admin privileges' do
-      admin = cur_admin
-      get :give_admin_priv, {id: @user.id}
-      expect(@user.is_admin?).to eq(true)
+  it 'destroys guest accounts' do
+    @user.add_role(:guest)
+    expect {
+      get :destroy_guests }.to change(User, :count).by(-1)
     end
 
-    it 'revokes admin privileges' do
-      admin = cur_admin
-      @user.add_role(:admin)
-      p "Is user admin?  #{@user.is_admin?}"
-      get :revoke_admin_priv, {id: @user.id}
-      expect(@user.is_admin?).to eq(false)
+  it 'gives admin privileges' do
+    admin = cur_admin
+    get :give_admin_priv, {id: @user.id}
+    expect(@user.is_admin?).to eq(true)
+  end
+
+  it 'revokes admin privileges' do
+    admin = cur_admin
+    get :revoke_admin_priv, {id: @user.id}
+    expect(@user.is_admin?).to eq(false)
+  end
+
+  it 'blocks a user' do
+    admin = cur_admin
+    get :block_user, {id: @user.id}
+    expect(@user.is_blocked?).to eq(true)
+  end
+
+  it 'unblocks a user' do
+    admin = cur_admin
+    get :unblock_user, {id: @user.id}
+    expect(@user.is_blocked?).to eq(false)
+  end
+
+  it 'prevents non-admins from making changes' do
+    user2 = cur_user
+    expect( get :give_admin_priv, {id: @user.id} ).to redirect_to('/')
+  end
+
+  describe 'when another user is invited,' do
+
+    it 'sends an invite email' do
+      expect{ get :invite_user, {invite_email: "test@test.com"} }.to change{ActionMailer::Base.deliveries.count}.by(1)
     end
 
-
-  # describe "GET index" do
-  #   it "assigns all users as @users" do
-  #     get :index, {}, valid_session
-  #     expect(assigns(:users)).to eq([@user])
-  #   end
-  # end
-
-  # describe "GET show" do
-  #   it "assigns the requested user as @user" do
-  #     get :show, {:id => @user.to_param}, valid_session
-  #     expect(assigns(:user)).to eq(@user)
-  #   end
-  # end
-
-  # describe "PUT update" do
-  #   describe "with valid params" do
-
-  #     # it "updates the requested user" do
-  #     #   put :update, {:id => @user.to_param, :user => FactoryGirl.attributes_for(:user)}, valid_session
-  #     #   user.reload
-  #     # end
-
-  #     it "assigns the requested user as @user" do
-  #       put :update, {:id => user.to_param, :user => FactoryGirl.attributes_for(:user)}, valid_session
-  #       expect(assigns(:user)).to eq(@user)
-  #     end
-
-  #     it "redirects to the user" do
-  #       user = User.create! valid_attributes
-  #       put :update, {:id => @user.to_param, :user => FactoryGirl.attributes_for(:user)}, valid_session
-  #       expect(response).to redirect_to(@user)
-  #     end
-  #   end
-
-  #   describe "with invalid params" do
-  #     it "assigns the user as @user" do
-  #       user = User.create! valid_attributes
-  #       put :update, {:id => @user.to_param, :user => FactoryGirl.attributes_for(:bad_user)}, valid_session
-  #       expect(assigns(:user)).to eq(@user)
-  #     end
-
-  #     it "re-renders the 'edit' template" do
-  #       put :update, {:id => @user.to_param, :user => FactoryGirl.attributes_for(:bad_user)}, valid_session
-  #       expect(response).to render_template("devise/registrations/edit")
-  #     end
-  #   end
-  # end
-
-  # describe "DELETE destroy" do
-  #   it "destroys the requested user" do
-  #     expect {
-  #       delete :destroy, {:id => @user.to_param}, valid_session
-  #     }.to change(User, :count).by(-1)
-  #   end
-
-  #   it "redirects to the users list" do
-  #     delete :destroy, {:id => @user.to_param}, valid_session
-  #     expect(response).to redirect_to(users_url)
-  #   end
-  # end
-
+    it 'redirects to root' do
+      expect( get :invite_user, {invite_email: "test@test.com"} ).to redirect_to('/')
+    end
+  end
 end
