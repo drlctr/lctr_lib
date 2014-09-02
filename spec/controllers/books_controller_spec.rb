@@ -97,40 +97,6 @@ RSpec.describe BooksController, :type => :controller do
     end
   end
 
-  describe "PUT update" do
-    describe "with valid params" do
-
-      it "updates the requested book" do
-        Book.any_instance.should_receive(:update).with(
-          {"title" => "Test_change", "author" => "MyString", "ISBN" => 1})
-        put :update, 
-          {:id => @book.to_param, :book => FactoryGirl.attributes_for(:book, "title" => "Test_change")}, valid_session
-      end
-
-      it "assigns the requested book as @book" do
-        put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:book)}, valid_session
-        expect(assigns(:book)).to eq(@book)
-      end
-
-      it "redirects to the book" do
-        put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:book)}, valid_session
-        expect(response).to redirect_to(@book)
-      end
-    end
-
-    describe "with invalid params" do
-      it "assigns the book as @book" do
-        put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:bad_book)}, valid_session
-        expect(assigns(:book)).to eq(@book)
-      end
-
-      it "re-renders the 'edit' template" do
-        put :update, {:id => @book.to_param, :book => FactoryGirl.attributes_for(:bad_book)}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
   describe "DELETE destroy" do
     it "destroys the requested book if it has no reviews" do
       expect {
